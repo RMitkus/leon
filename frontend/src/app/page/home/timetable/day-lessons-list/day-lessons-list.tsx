@@ -190,17 +190,17 @@ const DayLessonsList: React.FC<Props> = ({ lessonsList, userRole, day, date }) =
                             <h1 className={styles.classListHeader}>{(getDayFromInt(day))} {isThisDay && moment().format('YYYY-MM-DD') === date ? `(today)` : ``}
                                 <h3>{date}</h3>
                             </h1>) : <>
-                                <h1 className={styles.classListHeader}>Today's lecture ({todaysLessons.length})</h1>
-                            </>}
+                            <h1 className={styles.classListHeader}>Today's lecture ({todaysLessons.length})</h1>
+                        </>}
 
                         {listHeight > 0 && scheduleTimes && !day &&
-                            (
-                                <TimeLine
-                                    scheduleTimes={scheduleTimes}
-                                    listHeight={listHeight || 0}
-                                    lessonsList={todaysLessons}
-                                />
-                            )}
+                        (
+                            <TimeLine
+                                scheduleTimes={scheduleTimes}
+                                listHeight={listHeight || 0}
+                                lessonsList={todaysLessons}
+                            />
+                        )}
                         <ul className={listClass} ref={listRef}>{allLessons}</ul>
                     </>
                 )}

@@ -9,6 +9,7 @@ import { PageContent } from 'app/components/layout';
 import { DayLessonsList } from 'app/page/home/timetable/day-lessons-list/day-lessons-list';
 
 import styles from './home.module.scss';
+import { Whiteboard } from 'app/components/whiteboard/whiteboard';
 
 const { Content } = Layout;
 

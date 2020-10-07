@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 import styles from './lessons.module.scss';
 import { TeacherModal } from 'app/components/modalContent/teacherModal';
-import { navigationService } from 'app/service/navigation-service';
 import moment from 'moment';
+import { StudentModal } from 'app/components/modalContent/studentModal';
 
 interface Props {
     positionInList: number;
@@ -57,39 +57,22 @@ const SingleLesson: React.FC<Props> = (props) => {
     };
 
     return (
-        <>
-            {modalButton() ?
-                (
-                    <></>
-                    // <Modal
-                    //     key={lesson.id}
-                    //     title={lesson.subject}
-                    //     visible={modalVisible}
-                    //     onOk={() => handleOk()}
-                    //     onCancel={() => handleOk()}
-                    //     footer={null}
-                    //     okButtonProps={{
-                    //         children: 'Custom OK',
-                    //     }}
-                    // >
-                    //
-                    // </Modal>
-                ) :
-                (
-                    <Modal
-                        key={lesson.id}
-                        title={lesson.subject}
-                        visible={modalVisible}
-                        footer={null}
-                        onCancel={handleOk}
-                        okButtonProps={{
-                            children: 'Custom OK',
-                        }}
 
-                    >
-                        <TeacherModal lessonId={lesson.id} onClose={handleOk} date={date}/>
-                    </Modal>
-                )}
+        <>
+            <Modal
+                key={lesson.id}
+                title={lesson.subject}
+                visible={modalVisible}
+                footer={null}
+                onCancel={handleOk}
+                okButtonProps={{
+                    children: 'Custom OK',
+                }}
+            >
+                {modalButton() ?
+                    (<StudentModal classId={lesson.id} lessonInformation={lesson.lessonInformation} onClose={handleOk}/>) :
+                    (<TeacherModal lessonId={lesson.id} onClose={handleOk} date={date}/>)}
+            </Modal>
             < li className={listClass} key={lesson.id} onClick={() => showModal(lesson.id)}>
 
                 <div

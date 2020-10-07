@@ -40,7 +40,7 @@ const TimeLine: React.FC<Props> = (props) => {
         setCurrentTime(convertTimeToMinutes(time));
         setDayTimes();
         // console.log('asd');
-    }, []);
+    }, [setDayTimes, time]);
     useEffect(() => {
         setLineTop((listHeight / startEndDay.endTime) * currentTime);
     }, [currentTime, listHeight, startEndDay.endTime]);
@@ -68,4 +68,5 @@ const TimeLine: React.FC<Props> = (props) => {
     );
 };
 
+// @ts-ignore
 export { TimeLine };
